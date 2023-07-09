@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.verse{
+    color: white;
+    font-weight: 700;
+}
+.heading{
+    font-weight: 700;
+}
+.btn{
+    color: white;
+    background-color: green;
+    margin: 0rem 2rem;
+}
