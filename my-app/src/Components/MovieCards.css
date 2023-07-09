@@ -4,3 +4,57 @@
     
 
 }
+.card{
+    background-color: rgb(4, 3, 3);
+    color: azure;
+    padding: 5px;
+    margin-top: 20px;
+    
+
+}
+.card-text{
+    color: rgb(208, 178, 139);
+
+}
+.card:hover {
+    background-color: #2a2a2a; /* Set the desired background color */
+    color: #ceccda; /* Set the desired text color */
+    transform: translateY(-20px); /* Translate the element 10 pixels upward (adjust the value as needed) */
+  cursor: pointer; /* Set the cursor to a pointer */
+  transition: all; 
+  animation:.6s ease forwards;
+  transition-duration: 600ms;
+
+  }
+  
+
+  .container.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0.75rem;
+}
+
+.card {
+    flex-basis: calc(25% - 1.5rem);
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex-basis: calc(50% - 1.5rem);
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        flex-basis: 100%;
+    }
+}
+.stars-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem; /* Add margin to create space between the rating and other elements */
+}
+
