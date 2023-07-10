@@ -43,6 +43,12 @@ function Cards() {
             rating: 3,
             img: "https://upload.wikimedia.org/wikipedia/en/f/ff/Avengers_Age_of_Ultron_poster.jpg"
         },
+        {
+            name: "Avenger",
+            year: "2019",
+            rating: 3,
+            img: "https://upload.wikimedia.org/wikipedia/en/f/ff/Avengers_Age_of_Ultron_poster.jpg"
+        },
 
 
     ]);
