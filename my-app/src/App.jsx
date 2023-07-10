@@ -5,7 +5,9 @@ import './App.css'
 // import MovieCards from './Components/MovieCards'
 import Header from './Components/Header'
 import Cards from './Components/Cards'
+import AddMovie from './Components/AddMovie'
 
+import { Route, Routes } from 'react-router'
 
 
 
@@ -15,15 +17,19 @@ function App() {
 
   return (
     <>
-<Header/>
-<Cards/>
-{/* <MovieCards/> */}
-  
+      <Header />
+
+      <Routes>
+        <Route path='/' element={<Cards />} />
+        <Route path='/addmovie' element={<AddMovie />} />
+      </Routes>
+
+
     </>
   )
 }
 
 export default App
 
- 
+
 
