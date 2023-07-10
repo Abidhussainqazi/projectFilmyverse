@@ -2,8 +2,9 @@ import { useState } from 'react'
 
 
 import './App.css'
-import MovieCards from './Components/MovieCards'
+// import MovieCards from './Components/MovieCards'
 import Header from './Components/Header'
+import Cards from './Components/Cards'
 
 
 
@@ -15,7 +16,8 @@ function App() {
   return (
     <>
 <Header/>
-<MovieCards/>
+<Cards/>
+{/* <MovieCards/> */}
   
     </>
   )
