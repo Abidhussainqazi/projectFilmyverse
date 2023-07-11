@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+  
+}
+.card{
+    background-color: #212529;
+    cursor: pointer;
+}
+.span-text{
+    font-size: 1rem;
+}
+.heading{
+    font-size: 1.3rem;
+    
+}
+.zom :hover{
+    transform: translateY(-20px);
+    transition: transform 0.5s linear;
+  
+   
+}
