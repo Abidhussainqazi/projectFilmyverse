@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.img-link{
+    width: 36rem;
+    
+}
+@media (max-width:756px){
+    .img-link{
+        width: 22rem;
+        margin: auto;
+        
+    }
+}
+@media (max-width:756px){
+    .img-link1{
+        width: 11rem;
+        margin: auto;
+        
+    }
+}

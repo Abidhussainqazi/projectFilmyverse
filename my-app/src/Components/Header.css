@@ -6,15 +6,10 @@
 .heading{
     font-weight: 800;
 }
-.btn {
-    color: #ffffff; /* Change the text color to white */
-    background-color: #000000; /* Set a primary color for the button */
-    padding: 0.5rem 1rem; /* Adjust the padding as needed */
-    border: none; /* Remove the border */
-    border-radius: 0.25rem; /* Add a slight border-radius */
-    font-size: 1rem; /* Set an appropriate font size */
-    cursor: pointer; /* Change the cursor to a pointer on hover */
-    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+.btn1{
+    color: white;
+    background-color: green;
+    margin: 0rem 2rem;
 }
 
 .btn:hover {
