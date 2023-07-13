@@ -6,6 +6,7 @@ import './App.css'
 import Header from './Components/Header'
 import Cards from './Components/Cards'
 import AddMovie from './Components/AddMovie'
+import Detail from './Components/Detail'
 
 import { Route, Routes } from 'react-router'
 
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Cards />} />
         <Route path='/addmovie' element={<AddMovie />} />
+        <Route path='/detail/:id' element={<Detail />} />
       </Routes>
 
 
