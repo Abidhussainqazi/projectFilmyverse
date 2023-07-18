@@ -1,36 +1,66 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactStars from 'react-rating-stars-component'
-import'../Components/Detail.css'
+// import '../Components/Detail.css'
+import { useParams } from 'react-router-dom';
+import { db } from '../firebase/firebase';
+import { doc, getDoc } from 'firebase/firestore';
+import { ThreeCircles } from 'react-loader-spinner';
+import Reviews from './Reviews';
 
 function Detail() {
+
+    const { id } = useParams();
+    const [data, setData] = useState({
+        title: "",
+        year: "",
+        image: "",
+        description: "",
+        rating:0,
+        rated:0,
+    });
+
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        async function getData() {
+            setLoading(true);
+            const _doc = doc(db, "movies", id);
+            const _data = await getDoc(_doc);
+            setData(_data.data());
+            setLoading(false);
+        }
+        getData();
+
+    }, [])
     return (
         <>
-            <div className="container  text-center my-5">
-                <div className="row ">
-                    <div className="col-xl-5 col-lg-5 col-md-6 " >
-                        <img className='h-50 w-75 fix-col sticky' src="https://upload.wikimedia.org/wikipedia/en/f/ff/Avengers_Age_of_Ultron_poster.jpg" alt="" />
-                    </div>
-                    <div className="col-xl-5 col-lg-5 col-md-6 ">
-                        <h1 className='text-light text-start '> Avenger End Games <span>(2008)</span></h1>
-                        <ReactStars
-                                            size={20}
-                                            half={true}
-                                            value={4.5}
-                                            edit={false}
+            {loading ? <div className="container d-flex align-items-center justify-content-center my-5">
+                <div className=' d-flex aligns-items-center justify-content-center' style={{ marginTop: "16rem" }}> <ThreeCircles height={40} color='white' /></div> </div> :
+                <>
+                    <div className="container  text-center my-5">
 
-                                        />
-                        <p className='text-secondary text-start pt-1 '>The final "Avengers" movie is an epic sendoff to 11 years of Marvel storytelling, and also the launch of a new, exciting chapter. Avengers: Endgame: reviews, spoilers, news, and analysis of Marvel's biggest movie ever. The highly anticipated sequel to 2018's Avengers:
-                        The final "Avengers" movie is an epic sendoff to 11 years of Marvel storytelling, and also the launch of a new, exciting chapter. Avengers: Endgame: reviews, spoilers, news, and analysis of Marvel's biggest movie ever. The highly anticipated sequel to 2018's Avengers:
-                        The final "Avengers" movie is an epic sendoff to 11 years of Marvel storytelling, and also the launch of a new, exciting chapter. Avengers: Endgame: reviews, spoilers, news, and analysis of Marvel's biggest movie ever. The highly anticipated sequel to 2018's Avengers:
-                        The final "Avengers" movie is an epic sendoff to 11 years of Marvel storytelling, and also the launch of a new, exciting chapter. Avengers: Endgame: reviews, spoilers, news, and analysis of Marvel's biggest movie ever. The highly anticipated sequel to 2018's Avengers:
-                        The final "Avengers" movie is an epic sendoff to 11 years of Marvel storytelling, and also the launch of a new, exciting chapter. Avengers: Endgame: reviews, spoilers, news, and analysis of Marvel's biggest movie ever. The highly anticipated sequel to 2018's Avengers:
-                        The final "Avengers" movie is an epic sendoff to 11 years of Marvel storytelling, and also the launch of a new, exciting chapter. Avengers: Endgame: reviews, spoilers, news, and analysis of Marvel's biggest movie ever. The highly anticipated sequel to 2018's Avengers:
-                        The final "Avengers" movie is an epic sendoff to 11 years of Marvel storytelling, and also the launch of a new, exciting chapter. Avengers: Endgame: reviews, spoilers, news, and analysis of Marvel's biggest movie ever. The highly anticipated sequel to 2018's Avengers:
-                        The final "Avengers" movie is an epic sendoff to 11 years of Marvel storytelling, and also the launch of a new, exciting chapter. Avengers: Endgame: reviews, spoilers, news, and analysis of Marvel's biggest movie ever. The highly anticipated sequel to 2018's Avengers:
-                        The final "Avengers" movie is an epic sendoff to 11 years of Marvel storytelling, and also the launch of a new, exciting chapter. Avengers: Endgame: reviews, spoilers, news, and analysis of Marvel's biggest movie ever. The highly anticipated sequel to 2018's Avengers: ...</p>
+
+                        <div className="row ">
+                            <div className="col-xl-5 col-lg-5 col-md-6 " >
+                                <img className='h-75 w-75 fix-col sticky' src={data.image} alt="" />
+                            </div>
+                            <div className="col-xl-5 col-lg-5 col-md-6 ">
+                                <h1 className='text-light text-start '>{data.title} <span>({data.year})</span></h1>
+                                <ReactStars
+                                    size={20}
+                                    half={true}
+                                    value={data.rating/data.rated}
+                                    edit={false}
+
+                                />
+                                <p className='text-secondary text-start pt-1 '>{data.description}</p>
+        
+                          <Reviews id={id} prevRating={data.rating} userRated={data.rated}/>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-            </div>
+                 </>
+            }
 
 
         </>

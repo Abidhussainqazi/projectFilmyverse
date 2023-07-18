@@ -11,7 +11,9 @@ function AddMovie() {
         title: "",
         year: "",
         description: "",
-        image: ""
+        image: "",
+        rated:0,
+        rating:0,
     })
 
     // Loading-Spinner 
@@ -59,6 +61,7 @@ function AddMovie() {
                                 id='name'
                                 name='name'
                                 value={form.title}
+                                required
                                 onChange={(e) => setForm({ ...form, title: e.target.value })}
 
                                 className='px-5 p-2 img-link1' />
@@ -70,6 +73,7 @@ function AddMovie() {
                                 id='email'
                                 name='email'
                                 value={form.year}
+                                required
                                 onChange={(e) => setForm({ ...form, year: e.target.value })}
 
                                 className='px-5 p-2 img-link1' />
@@ -86,6 +90,7 @@ function AddMovie() {
                                 id='img'
                                 name='img'
                                 value={form.image}
+                                required
                                 onChange={(e) => setForm({ ...form, image: e.target.value })}
 
                                 className='px-5 p-2 text-start img-link' />
@@ -105,7 +110,7 @@ function AddMovie() {
 
 
 
-                                cols="76" rows="5" className='img-link'></textarea>
+                                cols="76" rows="5" maxLength={540} className='img-link'></textarea>
                         </div>
                     </div>
 
